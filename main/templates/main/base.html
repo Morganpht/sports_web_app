@@ -8,15 +8,16 @@
     <body>
 
         <nav>
-            <ul id="left-nav" class="navbar">
+            <ul class="navbar">
                 <li><a href="/">Home</a></li>
             </ul>
             <div>
-                <ul id="right-nav" class="navbar">
+                <ul class="navbar">
                     {% if user.is_authenticated %}
 
-                    <li><a href="/logout">Logout</a> </li>
                     <li><a href="#">{{user.username}}</a></li>
+                    <li><a href="/logout">Logout</a> </li>
+                    
 
                     {% else %}
 
@@ -27,6 +28,9 @@
             </div>
         </nav>
 
+        {% block content %}
+        {% endblock %}
+
         {% if messages %}
         <ul class="messages">
             {% for message in messages %}
@@ -34,9 +38,6 @@
             {% endfor %}
         </ul>
         {% endif %}
-
-        {% block content %}
-        {% endblock %}
 
     </body>
 </html>

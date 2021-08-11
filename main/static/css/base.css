@@ -9,7 +9,6 @@ body {
 	animation: gradient 25s ease infinite;
 	color: rgb(255, 255, 255);
     font-family: 'Montserrat', sans-serif;
-	
 }
 
 
@@ -112,14 +111,26 @@ a:hover {
 	color: rgb(255, 255, 255);
 }
 
-nav {
+nav a {
+	display: inline-block;
+	padding: 15px 20px;
+	color: rgba(255, 255, 255, 1);
+}
+
+nav a:hover {
+	background: rgba(255, 255, 255, 0.2);
+}
+
+li {
 	list-style-type: none;
+}
+
+nav {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	overflow: hidden;
 	background: rgba(255, 255, 255, 0.2);
-	border-bottom: 1px solid rgba(255, 255, 255, 0);
 	backdrop-filter: blur(12px);
 	box-shadow: 0 26px 42px rgba(0, 0, 0, 0.1);
 	height:max-content;
@@ -136,11 +147,6 @@ nav {
 	
 }
 
-nav li {
-	display: inline;
-	padding: 10px;
-	margin: 10px;
-}
 
 
 
@@ -150,14 +156,21 @@ ul.messages {
 	list-style-type: none;
 	position: relative;
 	display: flex;
-    background: rgba(255, 255, 255, 0.2);
-	border-top: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 26px 42px rgba(0, 0, 0, 0.1);
-    margin: 0;
-    padding: 20px 40px;
     height: max-content;
+	padding: 0;
+	margin: 0;
 }
 
-li.info {
-	color: white;
+ul.messages li{
+	list-style-type: none;
+	position: relative;
+	display: flex;
+    padding: 20px 40px;
+    height: max-content;
+	width: 100%;
+}
+
+
+.info {
+	background: rgba(255, 255, 255, 0.4);
 }
