@@ -3,13 +3,19 @@
 {% block content %}      
 
 {% load crispy_forms_tags %}
+{% load socialaccount %}
+{% load static %}
+
 <div class=container>
     <div class="form">
-        <h1>Login</h1>
+        <h1>Login to Splinky</h1>
         <form method="POST">
             {% csrf_token %}
             {{ login_form }}
             <button type="submit">Login</button>
+
+            <a href="{% provider_login_url 'google' %}"><img src="{% static "btn_google_signin_light_normal_web@2x.png" %}"></a>
+
             <div class="forgot-signup">
                 <a href="/register">Sign up</a>
                 <a href="#">Forgot password</a>

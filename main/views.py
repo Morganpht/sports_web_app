@@ -14,8 +14,9 @@ def register_request(request):
 		form = NewUserForm(request.POST)
 		if form.is_valid():
 			user = form.save()
-			login(request, user)
-			messages.success(request, "Registration successful." )
+			username = form.cleaned_data.get('username')
+			login(request, user, backend='django.contrib.auth.backends.ModelBackend')
+			messages.success(request, f"Registration successful: {username}" )
 			return redirect("main:homepage")
 		messages.error(request, "Unsuccessful registration. Invalid information.")
 	form = NewUserForm()

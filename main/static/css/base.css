@@ -11,8 +11,6 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
-
-
 @keyframes gradient {
 	0% {
 		background-position: 0% 50%;
@@ -68,7 +66,6 @@ input, button {
 button {
 	margin: 40px auto;
     padding: 12px 20px;
-	
 }
 
 input {
@@ -79,7 +76,6 @@ input {
 button:hover {
 	background: rgba(255, 255, 255, 0.3);
 	border-top: 1px solid rgba(255, 255, 255, 0.2);
-
 }
 
 input:focus {
@@ -105,6 +101,7 @@ input::placeholder {
 a {
 	color: rgba(255, 255, 255, 0.8);
 	text-decoration: none;
+	white-space: nowrap;
 }
 
 a:hover {
@@ -143,8 +140,58 @@ nav {
 	align-items: center;
 	position: unset;
 	padding: 0;
-	margin: 0;
-	
+	margin: 0
+}
+
+img {
+	width: 14rem;
+	height: auto;
+}
+
+.icon {
+	color: rgba(0,0,0,0.55);
+	margin: 5px 10px 5px 10px;
+	font-size: 28px;
+}
+
+#search-icon {
+	display: inline-block;
+	font-size: 20px;
+	color: rgba(255, 255, 255, 0.8);
+}
+
+#search-icon:hover{
+	cursor:default;
+}
+
+.searchbar {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	border-radius: 50px;
+	border: 1px solid #dadce0;
+	height: 38px;
+	margin: 0 5px 2px 5px;
+	width: fit-content;
+	padding: 0 5px;
+}
+
+#search-input {
+	border: 0;
+	width: 90%;
+	height: 70%;
+	margin: 5px;
+	padding: 0;
+	background: none;
+	text-align: left;
+	font-size: 18;
+	backdrop-filter: none;
+	box-shadow: none;
+}
+
+#search-ul {
+	display: table;
+	width: 50%;
 }
 
 
