@@ -5,12 +5,13 @@
         <title>Splinky</title>
         <link rel="stylesheet" href="{% static 'css/base.css' %}">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="shortcut icon" type="image/png" href="{% static "slinky.png" %}"/>
     </head>
     <body>
 
         <nav>
             <ul class="navbar">
-
+                <li style="max-height: 49px;"><a href="/" class="logo"><img src="{% static "slinky.png" %}" id="nav-logo"></a></li>
                 <li><a href="/">Home</a></li>
                 <li><a href="#">Feed</a></li>
                 
@@ -28,13 +29,13 @@
                     {% if user.is_authenticated %}
 
                     <li><a href="#">{{user.username}}</a></li>
-                    <li><a href="/logout">Logout</a> </li>
+                    <li><a href="/logout">Log out</a> </li>
                     
 
                     {% else %}
 
-                    <li><a href="/login">Login</a></li>
-                    <li><a href="/register">Sign-up</a></li>
+                    <li><a href="/login">Log in</a></li>
+                    <li><a href="/register">Sign up</a></li>
 
                     {% endif %}
                 </ul>

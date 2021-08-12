@@ -8,13 +8,14 @@
 
 <div class=container>
     <div class="form">
-        <h1>Login to Splinky</h1>
+        <h1>Sign into Splinky</h1>
+        <img src="{% static "slinky.png" %}" id="login-logo">
         <form method="POST">
             {% csrf_token %}
             {{ login_form }}
-            <button type="submit">Login</button>
+            <button type="submit" id="sign-in">Sign in</button>
 
-            <a href="{% provider_login_url 'google' %}"><img src="{% static "btn_google_signin_light_normal_web@2x.png" %}"></a>
+            <a href="{% provider_login_url 'google' %}"><img src="{% static "btn_google_signin_light_normal_web@2x.png" %}" class="Oauth"></a>
 
             <div class="forgot-signup">
                 <a href="/register">Sign up</a>
