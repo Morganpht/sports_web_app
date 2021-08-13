@@ -8,17 +8,17 @@
 
 <!--Register--> 
 <div class=container>
-	<div>
+	<div class="form" id="register-container">
 		<h1>Register</h1>
 
 		<div>
 			<a href="{% provider_login_url 'google' %}"><img src="{% static "btn_google_signin_light_normal_web@2x.png" %}" style="width:14rem; height:auto"></a>
 		</div>
-
+		
 		<form method="POST">
 			{% csrf_token %}
 			{{ register_form|crispy }}                    
-			<button type="submit">Register</button>
+			<button type="submit" class="register-button">Register</button>
 		</form>
 		<p>If you already have an account, <a href="/login">log in</a> instead.</p>
 	</div>

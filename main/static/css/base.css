@@ -9,6 +9,7 @@ body {
 	animation: gradient 25s ease infinite;
 	color: rgb(255, 255, 255);
     font-family: 'Montserrat', sans-serif;
+	overflow: hidden;
 }
 
 @keyframes gradient {
@@ -49,7 +50,11 @@ button {
 	margin: 5px auto;
     padding: 12px 20px;
 	display:inline-block;
-	
+	transition: background-color 0.2s ease;
+	border: none;
+	cursor: pointer;
+	background: rgba(255, 255, 255, 0.3);
+	color: white;
 }
 
 input {
@@ -58,8 +63,7 @@ input {
 }
 
 button:hover {
-	background: rgba(255, 255, 255, 0.3);
-	border-top: 1px solid rgba(255, 255, 255, 0.2);
+	background: rgba(255, 255, 255, 0.5);
 }
 
 input:focus {
@@ -91,6 +95,7 @@ a {
 
 a:hover {
 	color: rgb(255, 255, 255);
+	text-decoration: underline;
 }
 
 nav a {
@@ -117,12 +122,19 @@ nav {
 	box-shadow: 0 26px 42px rgba(0, 0, 0, 0.1);
 	height:max-content;
 	padding: 0 10px;
+	position: fixed;
+  	top: 0;
+	width: 100%;
+	z-index: 1;
 }
+
 
 .container {
 	align-content: center;
 	display: flex;
 	flex: 1 1 auto;
+	overflow-y: auto; 
+	margin-top: 49px;
 }
 
 .form {
@@ -225,13 +237,6 @@ nav {
 	width: 50%;
 }
 
-#sign-in {
-	transition: .2s ease;
-	border: none;
-	cursor: pointer;
-	margin: 25px auto;
-	
-}
 
 #sign-in:hover {
 	background: rgba(255, 255, 255, 0.4);
@@ -246,8 +251,41 @@ nav {
 	opacity: 0.8;
 }
 
+#register-container {
+	min-width: 80%;
+}
+
+.register-button {
+	margin-top: 40px;
+}
+
 
 /* Django-specifc stylings. */
+
+.controls ul {
+	margin: 5px auto;
+	padding-left: 20px;
+}
+
+.controls li {
+	list-style-type: disc;
+}
+
+.help-block {
+	margin: 5px auto;
+}
+
+.control-group {
+	text-align: left;
+}
+
+.control-label {
+	margin: 20px 5px 0 5px;
+}
+
+.textinput {
+	margin: 5px auto;
+}
 
 ul.messages {
 	list-style-type: none;
