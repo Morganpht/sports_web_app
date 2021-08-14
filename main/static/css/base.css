@@ -29,6 +29,8 @@ body {
 h1 {
 	margin-bottom: 20px;
 	margin-top: 20px;
+	font-family: 'Quicksand', sans-serif;
+	font-weight: 800;
 }
 
 input, button {
@@ -54,7 +56,7 @@ button {
 	border: none;
 	cursor: pointer;
 	background: rgba(255, 255, 255, 0.3);
-	color: white;
+	
 }
 
 input {
@@ -64,6 +66,7 @@ input {
 
 button:hover {
 	background: rgba(255, 255, 255, 0.5);
+	color: white;
 }
 
 input:focus {
@@ -106,6 +109,7 @@ nav a {
 
 nav a:hover {
 	background: rgba(255, 255, 255, 0.2);
+	text-decoration: none;
 }
 
 li {
@@ -135,6 +139,8 @@ nav {
 	flex: 1 1 auto;
 	overflow-y: auto; 
 	margin-top: 49px;
+	padding: 49px 0;
+	flex-direction: column;
 }
 
 .form {
@@ -144,7 +150,7 @@ nav {
 	max-width: 450px;
 	min-width: 250px;
 	width: 30vw;
-	margin: auto;
+	margin: 49px auto;
 	padding: 20px;
 	background: rgba(255, 255, 255, 0.2);
 	border-radius: 12px;
@@ -253,17 +259,33 @@ nav {
 
 #register-container {
 	min-width: 80%;
+	margin: auto auto 49px auto;
 }
 
 .register-button {
 	margin-top: 40px;
 }
 
+#register-form {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
 
 /* Django-specifc stylings. */
 
-.controls ul {
+.emailinput, .textinput {
 	margin: 5px auto;
+}
+
+.controls ul, p {
+	font-size: 14px;
+	margin: 5px;
+	color: rgba(255, 255, 255, 0.8);
+}
+
+.controls ul {
 	padding-left: 20px;
 }
 
@@ -271,20 +293,31 @@ nav {
 	list-style-type: disc;
 }
 
-.help-block {
-	margin: 5px auto;
-}
-
 .control-group {
 	text-align: left;
+	flex: 0 0 100%;
 }
 
 .control-label {
 	margin: 20px 5px 0 5px;
 }
 
-.textinput {
-	margin: 5px auto;
+#div_id_first_Name, #div_id_last_Name {
+	flex: 1 0 100%
+}
+
+@media all and (min-width: 700px) {
+	#div_id_first_Name{
+		flex-basis: 40%;
+		padding-right: 10px;
+	}
+}
+
+@media all and (min-width: 700px) {
+	#div_id_last_Name {
+		flex-basis: 40%;
+		padding-left: 10px;
+	}
 }
 
 ul.messages {
@@ -306,9 +339,13 @@ ul.messages li{
 }
 
 .info {
-	background: rgba(255, 255, 255, 0.4);
+	background: rgba(66, 100, 255, 0.4);
 }
 
 .success {
-	background: rgba(255, 255, 255, 0.4);
+	background: rgba(47, 253, 157, 0.4);
+}
+
+.error {
+	background:rgba(252, 16, 16, 0.26)
 }
