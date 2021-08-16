@@ -8,11 +8,18 @@
 
 <!--Register--> 
 <div class=container>
-	<div class="form" id="register-container">
-		<div>
-			<a href="{% provider_login_url 'google' %}"><img src="{% static "btn_google_signin_light_normal_web@2x.png" %}" style="width:14rem; height:auto"></a>
-			<a href="{% provider_login_url 'facebook' %}"><img src="{% static "btn_facebook_login.png" %}" style="width:14rem; height:auto"></a>
-		</div>
+	<div class="form" id="login-container">
+		<a href="{% provider_login_url 'google' %}" class="login-link">
+			<div class="google login-button"><img class="login-logo" src="{% static "g-logo.png" %}">
+			<div class="login-text">Continue with Google</div>
+			</div>
+		</a>
+		<a href="{% provider_login_url 'facebook' %}" class="login-link">
+			<div class="facebook login-button"><img class="login-logo" src="{% static "f_logo_RGB-White_1024.png" %}">
+			<div class="login-text">Continue with Facebook</div>
+			</div>
+		</a>
+			
 	</div>
 	<div class="form" id="register-container">
 		<h1>Register with Splinky:</h1>
