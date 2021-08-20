@@ -13,11 +13,19 @@
         <form method="POST">
             {% csrf_token %}
             {{ login_form }}
-            <button type="submit" id="sign-in">Sign in</button>
-
-            <a href="{% provider_login_url 'google' %}"><img src="{% static "btn_google_signin_light_normal_web@2x.png" %}" class="Oauth"></a>
-            <a href="{% provider_login_url 'google' %}"><img src="{% static "btn_facebook_login.png" %}" class="Oauth"></a>
-
+            <button type="submit" id="sign-in-button">Sign in</button>
+            <div id="login-container-small">
+                <a href="{% provider_login_url 'google' %}" class="login-link">
+                    <div class="google login-button-small"><img class="login-logo" src="{% static "g-logo.png" %}">
+                    <div class="login-text">Google</div>
+                    </div>
+                </a>
+                <a href="{% provider_login_url 'facebook' %}" class="login-link">
+                    <div class="facebook login-button-small"><img class="login-logo" src="{% static "f_logo_RGB-White_1024.png" %}">
+                    <div class="login-text">Facebook</div>
+                    </div>
+                </a>
+            </div>
             <div class="forgot-signup">
                 <a href="/register">Sign up</a>
                 <a href="#">Forgot password</a>

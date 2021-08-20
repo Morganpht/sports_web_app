@@ -9,7 +9,8 @@ body {
 	animation: gradient 25s ease infinite;
 	color: rgb(255, 255, 255);
     font-family: 'Montserrat', sans-serif;
-	overflow: hidden;
+	overflow-y: hidden;
+	overflow-x: auto;
 }
 
 @keyframes gradient {
@@ -33,7 +34,7 @@ h1 {
 	font-weight: 800;
 }
 
-input, button {
+input, button, select {
 
 	text-align: center;
 	font-size: 16px;
@@ -46,22 +47,17 @@ input, button {
 	border-radius: 12px;
 	border-top: 1px solid rgba(255, 255, 255, 0);
 	box-shadow: 0 13px 21px rgba(0, 0, 0, 0.05);
+	margin: 5px auto;
+    padding: 12px 20px;
 }
 
 button {
-	margin: 5px auto;
-    padding: 12px 20px;
 	display:inline-block;
 	transition: background-color 0.2s ease;
 	border: none;
 	cursor: pointer;
 	background: rgba(255, 255, 255, 0.3);
 	
-}
-
-input {
-    margin: 5px auto 20px auto;
-    padding: 12px 20px;
 }
 
 button:hover {
@@ -83,11 +79,26 @@ input::placeholder {
 	font-size: 13px;
 }
 
+option {
+	text-align: left;
+	border-radius: 5px;
+}
+
+option:hover {
+	outline: none;
+	background-color: rgba(255, 255, 255, 0.3);
+}
+
+select:hover {
+	background-color: rgba(255, 255, 255, 0.3);
+}
+
 label {
 	text-align: left;
 	width: 100%;
 	height: auto;
 	display: inline-block;
+	margin: 20px 5px 0 5px;
 }
 
 a {
@@ -130,6 +141,7 @@ nav {
   	top: 0;
 	width: 100%;
 	z-index: 1;
+	min-width: fit-content;
 }
 
 
@@ -141,6 +153,7 @@ nav {
 	margin-top: 49px;
 	padding: 49px 0;
 	flex-direction: column;
+	min-width: 490px;
 }
 
 .form {
@@ -243,12 +256,6 @@ nav {
 	width: 50%;
 }
 
-
-#sign-in:hover {
-	background: rgba(255, 255, 255, 0.4);
-	color: white;
-}
-
 #login-logo {
 	display: block;
     margin-left: auto;
@@ -262,8 +269,12 @@ nav {
 	margin: auto auto 49px auto;
 }
 
-.register-button {
+#register-button {
 	margin-top: 40px;
+}
+
+#sign-in-button {
+	margin-top: 30px;
 }
 
 #register-form {
@@ -278,60 +289,78 @@ nav {
 #login-container {
 	min-width: 80%;
 	margin: auto auto 49px auto;
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: space-between;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(270px, max-content));
+	column-gap: 16px;
+	justify-content: center;
 }
 
-.login-button {
-	border-radius: 5px;
-	padding: 12px;
-	width: 250px;
-	display: flex;
-	box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.2);
-	transition: box-shadow 0.2s ease;
+#login-container-small {
+	margin: 20px auto;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(170px, max-content));
+	column-gap: 16px;
+	justify-content: center;
 }
 
-.login-logo {
-	height: auto;
-	width: 25px;
-	display: inline-block;
-}
+	.login-link {
+		padding: 10px 0;
+	}
 
-.login-text {
-	display: inline-block;
-	font-family: "Roboto", sans-serif;
-	font-weight: 800;
-	width: 100%;
-	align-self: center;
-}
+	.login-link:hover {
+		text-decoration: none;
+	}
 
-.login-link {
-	padding: 10px 0;
-}
+		.login-button-small {
+			border-radius: 12px;
+			padding: 12px;
+			width: 150px;
+			display: flex;
+			box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.2);
+			transition: box-shadow 0.2s ease;
+		}
 
-.login-link:hover {
-	text-decoration: none;
-}
+		.login-button {
+			border-radius: 5px;
+			padding: 12px;
+			width: 250px;
+			display: flex;
+			box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.2);
+			transition: box-shadow 0.2s ease;
+		}
 
-.facebook {
-	background-color: rgb(24, 119, 242);
-	color: white;
-}
+			.facebook {
+				background-color: rgb(24, 119, 242);
+				color: white;
+			}
 
-.facebook:hover {
-	box-shadow: 0 0 12px white;
-}
+			.facebook:hover {
+				box-shadow: 0 0 12px white;
+			}
 
-.google {
-	background-color: white;
-	color: rgb(90, 90, 90);
-}
+			.google {
+				background-color: white;
+				color: rgb(90, 90, 90);
+			}
 
-.google:hover {
-	box-shadow: 0 0 12px #4285F4;
-}
+			.google:hover {
+				box-shadow: 0 0 12px #4285F4;
+			}
+
+				.login-logo {
+					height: auto;
+					width: 25px;
+					display: inline-block;
+				}
+
+				.login-text {
+					display: inline-block;
+					font-family: "Roboto", sans-serif;
+					font-weight: 800;
+					width: 100%;
+					align-self: center;
+				}
+
 
 
 
@@ -339,9 +368,6 @@ nav {
 
 /* Django-specifc stylings. */
 
-.emailinput, .textinput {
-	margin: 5px auto;
-}
 
 .controls ul, p {
 	font-size: 14px;
@@ -362,27 +388,41 @@ nav {
 	flex: 0 0 100%;
 }
 
-.control-label {
-	margin: 20px 5px 0 5px;
+.selectmultiple {
+	height: 154px;
 }
 
-#div_id_first_Name, #div_id_last_Name {
+#div_id_first_name, #div_id_last_name, #div_id_gender, #div_id_date_of_birth {
 	flex: 1 0 100%
 }
 
-@media all and (min-width: 700px) {
-	#div_id_first_Name{
-		flex-basis: 40%;
-		padding-right: 10px;
+	@media all and (min-width: 700px) {
+		#div_id_first_name {
+			flex-basis: 40%;
+			padding-right: 10px;
+		}
 	}
-}
 
-@media all and (min-width: 700px) {
-	#div_id_last_Name {
-		flex-basis: 40%;
-		padding-left: 10px;
+	@media all and (min-width: 700px) {
+		#div_id_last_name {
+			flex-basis: 40%;
+			padding-left: 10px;
+		}
 	}
-}
+
+	@media all and (min-width: 500px) {
+		#div_id_date_of_birth {
+			flex-basis: 40%;
+			padding-right: 10px;
+		}
+	}
+
+	@media all and (min-width: 500px) {
+		#div_id_gender {
+			flex-basis: 40%;
+			padding-left: 10px;
+		}
+	}
 
 ul.messages {
 	list-style-type: none;
