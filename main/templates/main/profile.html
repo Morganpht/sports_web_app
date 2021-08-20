@@ -3,12 +3,15 @@
 	{% block content %}
     <div class=container></div>
 	
+        <h5>Username:</h5>
         <p>{{ user.username }}</p>
-        <p>Name:</p>
+        <h5>Name:</h5>
         <p>{{ user.first_name }} {{ user.last_name }}</p>
-        <p>Email:</p>
+        <h5>Email:</h5>
         <p>{{ user.email }} </p>
+        <h5>Date of birth:</h5>
         <p>{{ user.profile.date_of_birth }} </p>
+        <h5>Gender:</h5>
         <p>{{ user.profile.gender }} </p>
 
     
