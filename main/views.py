@@ -36,11 +36,10 @@ def login_request(request):
 		if form.is_valid():
 			username = form.cleaned_data.get('username')
 			password = form.cleaned_data.get('password')
-			first_name = form.cleaned_data.get('first_name')
 			user = authenticate(username=username, password=password)
 			if user is not None:
 				login(request, user)
-				messages.info(request, f"You are now logged in as {first_name}.")
+				messages.info(request, f"You are now logged in as {username}.")
 				return redirect("main:homepage")
 			else:
 				messages.error(request,"Invalid username or password.")

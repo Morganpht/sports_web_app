@@ -4,10 +4,7 @@ from django.dispatch import receiver
 from django.db.models.signals import post_save
 import random
 
-def random_pic(array):
-        return array[random.randint(0, (len(array)-1))]
 
-defaultAvatars = ['avatar_01.png', 'avatar_02.png', 'avatar_03.png', 'avatar_04.png']
 
 
 
@@ -15,6 +12,11 @@ defaultAvatars = ['avatar_01.png', 'avatar_02.png', 'avatar_03.png', 'avatar_04.
 # Create your models here.
 
 class Profile(models.Model):
+
+    def random_pic(array):
+        return array[random.randint(0, (len(array)-1))]
+
+    defaultAvatars = ['avatar_01.png', 'avatar_02.png', 'avatar_03.png', 'avatar_04.png']
 
     genderChoices = (("1", "Male"), ("2", "Female"), ("3", "Other"), ("4", "Prefer not to say"))
 
