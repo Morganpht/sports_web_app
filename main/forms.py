@@ -3,20 +3,16 @@ from typing import NewType
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from django.utils import timezone
 from .models import Profile
 
 
 class NewUserForm(UserCreationForm):
 
-    genderChoices = (("1", "Male"), ("2", "Female"), ("3", "Other"), ("4", "Prefer not to say"))
-
     email = forms.EmailField(required=True)
     first_name = forms.CharField(required=True)
     last_name = forms.CharField(required=True)
-    date_of_birth = forms.DateField(required=True, widget=forms.SelectDateWidget(years=range((datetime.date.today().year)-120, (datetime.date.today().year)+1)))
-    gender = forms.MultipleChoiceField(required=True, choices=genderChoices)
-
+    date_of_birth = forms.DateField(required=True, widget=forms.SelectDateWidget(years=reversed(range((datetime.date.today().year)-120, (datetime.date.today().year)+1))))
+    gender = forms.ChoiceField(required=True, choices=Profile.genderChoices, widget=forms.Select())
     class Meta:
         model = User
         fields = (

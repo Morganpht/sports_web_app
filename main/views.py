@@ -19,7 +19,7 @@ def register_request(request):
 			user = form.save()
 			user.refresh_from_db()
 			user.profile.date_of_birth = form.cleaned_data.get('date_of_birth')
-			user.gender = form.cleaned_data.get('gender')
+			user.profile.gender = form.cleaned_data.get('gender')
 			user.save()
 			username = form.cleaned_data.get('username')
 			login(request, user, backend='django.contrib.auth.backends.ModelBackend')

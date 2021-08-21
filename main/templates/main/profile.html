@@ -3,6 +3,7 @@
 	{% block content %}
     <div class=container></div>
 	
+        <img class="profile_pic" src="/static{{ user.profile.profile_pic.url }}">
         <h5>Username:</h5>
         <p>{{ user.username }}</p>
         <h5>Name:</h5>
@@ -12,7 +13,7 @@
         <h5>Date of birth:</h5>
         <p>{{ user.profile.date_of_birth }} </p>
         <h5>Gender:</h5>
-        <p>{{ user.profile.gender }} </p>
+        <p>{{ user.profile.get_gender_display }} </p>
 
     
     </div>  

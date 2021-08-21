@@ -362,7 +362,13 @@ nav {
 				}
 
 
+/* Profile settings */
 
+.profile_pic {
+	height: auto;
+	width: 25%;
+	display: inline-block;
+}
 
 
 
