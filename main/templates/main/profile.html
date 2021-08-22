@@ -1,20 +1,42 @@
 {% extends "main/base.html" %}
 
 	{% block content %}
-    <div class=container></div>
-	
-        <img class="profile_pic" src="/static{{ user.profile.profile_pic.url }}">
-        <h5>Username:</h5>
-        <p>{{ user.username }}</p>
-        <h5>Name:</h5>
-        <p>{{ user.first_name }} {{ user.last_name }}</p>
-        <h5>Email:</h5>
-        <p>{{ user.email }} </p>
-        <h5>Date of birth:</h5>
-        <p>{{ user.profile.date_of_birth }} </p>
-        <h5>Gender:</h5>
-        <p>{{ user.profile.get_gender_display }} </p>
+    <div class=container id="profile">
+        
+        <div id="personal-info">
+            <img class="profile_pic" src="/static{{ user.profile.profile_pic.url }}">
+                 
+            <div id="profile-fields">
 
-    
-    </div>  
+                <h1>{{ user.first_name }} {{ user.last_name }}</h1>
+                <img id="nationality-icon" src="{{ user.profile.nationality.flag }}"> 
+
+                <h5 >Username:</h5>
+                <p >@{{ user.username }}</p> 
+                <h5 >Email:</h5>
+                <p >{{ user.email }} </p>
+                <h5 >Age:</h5>
+                <p >{{ user_age }}</p>
+
+                {% if user.profile.nationality %}
+                <h5 >Nationality:</h5>
+                <p >{{ user.profile.nationality.name }} </p>
+                {% endif %}
+
+                <h5 >Gender:</h5>
+                <p >{{ user.profile.get_gender_display }} </p>
+                <h5 >Member since:</h5>
+                <p >{{ user.date_joined.date }} </p>
+            </div>
+        </div>
+        
+        {% if request.user.is_authenticated and request.user.username == user.username %}
+        <button>Edit profile</button>
+        {% endif %}
+
+    </div>
+	
+        
+
+  
 	{% endblock %}

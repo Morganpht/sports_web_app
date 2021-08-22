@@ -5,6 +5,11 @@ from django.contrib import messages
 from .forms import NewUserForm
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.models import User
+from datetime import date
+
+def calculate_age(born):
+    today = date.today()
+    return today.year - born.year - ((today.month, today.day) < (born.month, born.day))
 
 
 # Create your views here.
@@ -55,4 +60,5 @@ def logout_request(request):
 
 def profile(request, username):
 	user = get_object_or_404(User, username=username)
-	return render(request=request, template_name="main/profile.html", context={"user":user})
+	user_age = calculate_age(user.profile.date_of_birth)
+	return render(request=request, template_name="main/profile.html", context={"user":user, "user_age":user_age})

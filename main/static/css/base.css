@@ -366,9 +366,57 @@ nav {
 
 .profile_pic {
 	height: auto;
-	width: 25%;
+	width: 100%;
 	display: inline-block;
 }
+
+#profile {
+	padding: 49px;
+}
+
+	#profile h1 {
+		margin: 0 auto;
+		color: white;
+		font-weight: 9000;
+	}
+
+	#personal-info {
+		width: max-content;
+		padding: 20px;
+		background: rgba(255, 255, 255, 0.2);
+		border-radius: 12px;
+		border-top: 1px solid rgba(255, 255, 255, 0.5);
+		border-right: 1px solid rgba(255, 255, 255, 0);
+		border-bottom: 1px solid rgba(255, 255, 255, 0);
+		border-left: 1px solid rgba(255, 255, 255, 0.2);
+		backdrop-filter: blur(12px);
+		box-shadow: 0 26px 42px rgba(0, 0, 0, 0.1);
+		display: grid;
+		grid-template-columns: 250px max-content;
+		column-gap: 20px;
+	}
+
+	.profile-card {
+		display: grid;
+		grid-template-rows: max-content max-content;
+	}
+
+		#profile-fields	{
+			display: grid;
+			grid-template-columns: max-content max-content;
+			column-gap: 10px;
+			margin: 10px auto;
+		}	
+
+		#profile-fields h5, p {
+			margin: 5px;
+			width: max-content;
+		}
+
+			#nationality-icon {
+				height: 25%;
+				margin: auto 0;
+			}
 
 
 
@@ -416,18 +464,24 @@ nav {
 		}
 	}
 
-	@media all and (min-width: 500px) {
+	@media all and (min-width: 700px) {
 		#div_id_date_of_birth {
 			flex-basis: 40%;
 			padding-right: 10px;
 		}
 	}
 
-	@media all and (min-width: 500px) {
+	@media all and (min-width: 700px) {
 		#div_id_gender {
 			flex-basis: 40%;
 			padding-left: 10px;
 		}
+	}
+
+	#div_id_date_of_birth div {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		column-gap: 5px;
 	}
 
 ul.messages {

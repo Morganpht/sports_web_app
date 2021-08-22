@@ -8,10 +8,14 @@ from .models import Profile
 
 class NewUserForm(UserCreationForm):
 
+    years = []
+    for i in reversed(range((datetime.date.today().year)-120, (datetime.date.today().year)+1)):
+        years.append(i)
+
     email = forms.EmailField(required=True)
     first_name = forms.CharField(required=True)
     last_name = forms.CharField(required=True)
-    date_of_birth = forms.DateField(required=True, widget=forms.SelectDateWidget(years=reversed(range((datetime.date.today().year)-120, (datetime.date.today().year)+1))))
+    date_of_birth = forms.DateField(required=True, widget=forms.SelectDateWidget(years=years))
     gender = forms.ChoiceField(required=True, choices=Profile.genderChoices, widget=forms.Select())
     class Meta:
         model = User
